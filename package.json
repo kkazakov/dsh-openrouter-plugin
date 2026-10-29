@@ -1,0 +1,47 @@
+{
+  "name": "@wasp/dsh-openrouter-balance",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "OpenRouter account credit in DeepSeek Harness: a composer strip, a settings page, and an openrouter_balance agent tool.",
+  "license": "MIT",
+  "author": "Krasimir Kazakov",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kkazakov/dsh-openrouter-plugin.git"
+  },
+  "homepage": "https://github.com/kkazakov/dsh-openrouter-plugin#readme",
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "dsh",
+    "openrouter",
+    "balance",
+    "credits",
+    "wallet"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json"
+  ],
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  }
+}

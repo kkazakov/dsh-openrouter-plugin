@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "OpenRouter Balance",
+    "description": "Shows the remaining OpenRouter credit under the composer and on its own settings page, and gives the agent an openrouter_balance tool."
+  }
+}

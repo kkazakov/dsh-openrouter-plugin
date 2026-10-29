@@ -1,0 +1,22 @@
+# OpenRouter balance bundle.
+# One Host row owns the polling, the `openrouter_balance` tool, and the
+# same-origin route the Client half reads. There is no prompt notice: this
+# bundle is display-only, so nothing here is injected into the model's context.
+- insert:
+    - id: openrouter-balance
+      name: '@wasp/dsh-openrouter-balance'
+      config:
+        # Leave apiKey empty to read OPENROUTER_API_KEY from the environment, then
+        # from the Harness credential store (credentialsFile).
+        apiKey: ''
+        credentialsFile: ''
+        # The API origin that serves the credits and auth/key endpoints.
+        apiOrigin: 'https://openrouter.ai'
+        # Backstop poll for the tool; the page also forces a fresh read on each
+        # of its own polls, so the strip stays current.
+        refreshSeconds: 300
+        # The composer readout shows while the selected model's provider id
+        # contains this substring (the provider id is `openrouter`).
+        providerMatch: 'openrouter'
+        # Set true to show the readout for every provider, not just OpenRouter.
+        showForAllProviders: false
